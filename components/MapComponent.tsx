@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/no-loss-of-precision */
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo } from "react";
 import {
   GoogleMap,
   InfoWindow,
   Marker,
   useLoadScript,
-} from '@react-google-maps/api';
+} from "@react-google-maps/api";
 
 const MapComponent = (): JSX.Element => {
-  const libraries = useMemo(() => ['places'], []);
+  const libraries = useMemo(() => ["places"], []);
   const [mapCenter] = useState({
     lat: 47.201662412718214,
     lng: -1.5904517807606977,
@@ -41,11 +40,12 @@ const MapComponent = (): JSX.Element => {
     <GoogleMap
       center={mapCenter}
       zoom={12}
-      mapContainerStyle={{ height: '640px', width: '100%' }}>
+      mapContainerStyle={{ height: "640px", width: "100%" }}
+    >
       <Marker
         position={mapCenter}
         icon={{
-          url: '/images/contact/customMarker.png',
+          url: "/images/contact/customMarker.png",
         }}
         onClick={() => {
           handleMarkerClick(1);
@@ -56,7 +56,8 @@ const MapComponent = (): JSX.Element => {
           position={mapCenterInfo}
           onCloseClick={() => {
             setSelectedMarker(null);
-          }}>
+          }}
+        >
           <div className="bg-white p-4 rounded-lg shadow-md">
             <h3 className="text-lg font-medium text-gray-600 mb-2">
               Atelier Arcadie
