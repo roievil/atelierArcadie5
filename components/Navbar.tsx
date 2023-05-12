@@ -1,103 +1,100 @@
-"use client" // this is a client component
-import React from "react"
-import { useState } from "react"
-import { Link } from "react-scroll/modules"
-import { usePathname } from "next/navigation"
-import { useTheme } from "next-themes"
-import { RiMoonFill, RiSunLine } from "react-icons/ri"
-import { IoMdMenu, IoMdClose } from "react-icons/io"
+import Link from 'next/link';
+import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import imageLogo from '../public/images/arcadieTitreBarreNavigation.png';
 
-interface NavItem {
-  label: string
-  page: string
-}
+const Navbar = (): JSX.Element => {
+  const [nav, setNav] = useState(false);
+  const [opacity, setOpacity] = useState(0.6);
 
-const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: "Home",
-    page: "home",
-  },
-  {
-    label: "About",
-    page: "about",
-  },
-  {
-    label: "Projects",
-    page: "projects",
-  },
-]
+  const handleNav = (): void => {
+    setNav(!nav);
+  };
 
-export default function Navbar() {
-  const { systemTheme, theme, setTheme } = useTheme()
-  const currentTheme = theme === "system" ? systemTheme : theme
-  const pathname = usePathname()
-  const [navbar, setNavbar] = useState(false)
+  useEffect(() => {
+    const changeColor = (): void => {
+      if (window.scrollY >= 90) {
+        setOpacity(1);
+      } else {
+        setOpacity(0.6);
+      }
+    };
+    window.addEventListener('scroll', changeColor);
+  }, []);
+
   return (
-    <header className="w-full mx-auto  px-4 sm:px-20 fixed top-0 z-50 shadow bg-white dark:bg-stone-900 dark:border-b dark:border-stone-600">
-      <div className="justify-between md:items-center md:flex">
-        <div>
-          <div className="flex items-center justify-between py-3 md:py-5 md:block">
-            <Link to="home">
-              <div className="container flex items-center space-x-2">
-                <h2 className="text-2xl font-bold">Hosna Qasmei</h2>
-              </div>
-            </Link>
-            <div className="md:hidden">
-              <button
-                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
-                onClick={() => setNavbar(!navbar)}
-              >
-                {navbar ? <IoMdClose size={30} /> : <IoMdMenu size={30} />}
-              </button>
-            </div>
-          </div>
-        </div>
+    <div
+      style={{ opacity: `${opacity}` }}
+      className="fixed left-0 top-0 w-full z-10 ease-in duration-300 bg-black">
+      <div className="max-w-[1240px] m-auto flex justify-between items-center p-4 text-white">
+        <Link href="/">
+          <Image
+            className="h-auto max-w-full"
+            src={imageLogo}
+            alt="Logo Atelier Arcadie"
+          />
+        </Link>
+        <ul className="hidden sm:flex">
+          <li className="p-4">
+            <Link href="/">Home</Link>
+          </li>
+          <li className="p-4">
+            <Link href="/coffrets">Coffrets et Présentoirs</Link>
+          </li>
+          <li className="p-4">
+            <Link href="/materiaux">Matériaux et Fabrication</Link>
+          </li>
+          <li className="p-4">
+            <Link href="/arcadie">Arcadie ?</Link>
+          </li>
+          <li className="p-4">
+            <Link href="/contact">Contact</Link>
+          </li>
+        </ul>
 
-        <div>
-          <div
-            className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
-              navbar ? "block" : "hidden"
-            }`}
-          >
-            <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              {NAV_ITEMS.map((item, idx) => {
-                return (
-                  <Link
-                    key={idx}
-                    to={item.page}
-                    className={
-                      "block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100"
-                    }
-                    activeClass="active"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={500}
-                    onClick={() => setNavbar(!navbar)}
-                  >
-                    {item.label}
-                  </Link>
-                )
-              })}
-              {currentTheme === "dark" ? (
-                <button
-                  onClick={() => setTheme("light")}
-                  className="bg-slate-100 p-2 rounded-xl"
-                >
-                  <RiSunLine size={25} color="black" />
-                </button>
-              ) : (
-                <button
-                  onClick={() => setTheme("dark")}
-                  className="bg-slate-100 p-2 rounded-xl"
-                >
-                  <RiMoonFill size={25} />
-                </button>
-              )}
-            </div>
-          </div>
+        {/* Mobile Button */}
+        <div onClick={handleNav} className="block sm:hidden z-10">
+          {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+        </div>
+        {/* Mobile Menu */}
+        <div
+          className={
+            nav
+              ? 'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
+              : 'sm:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
+          }>
+          <ul>
+            <li
+              onClick={handleNav}
+              className="p-4 text-4xl hover:text-gray-500">
+              <Link href="/">Home</Link>
+            </li>
+            <li
+              onClick={handleNav}
+              className="p-4 text-4xl hover:text-gray-500">
+              <Link href="/coffrets">Coffrets et Présentoirs</Link>
+            </li>
+            <li
+              onClick={handleNav}
+              className="p-4 text-4xl hover:text-gray-500">
+              <Link href="/materiaux">Matériaux et Fabrication</Link>
+            </li>
+            <li
+              onClick={handleNav}
+              className="p-4 text-4xl hover:text-gray-500">
+              <Link href="/arcadie">Arcadie ?</Link>
+            </li>
+            <li
+              onClick={handleNav}
+              className="p-4 text-4xl hover:text-gray-500">
+              <Link href="/contact">Contact</Link>
+            </li>
+          </ul>
         </div>
       </div>
-    </header>
-  )
-}
+    </div>
+  );
+};
+
+export default Navbar;
