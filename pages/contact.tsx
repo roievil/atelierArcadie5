@@ -1,5 +1,6 @@
-import React from 'react';
-import Contact from '@/components/ContactComponent';
+"use client"; // this is a client component
+import React from "react";
+import Contact from "@/components/ContactComponent";
 // import Hero from '@/components/Hero';
 
 const contact = (): JSX.Element => {

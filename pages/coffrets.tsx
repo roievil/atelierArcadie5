@@ -1,8 +1,9 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import data from '@/components/coffrets.json';
-import { type Data } from '@/types/interfaces';
+"use client"; // this is a client component
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import data from "@/components/coffrets.json";
+import { type Data } from "@/types/interfaces";
 
 const coffrets = (): JSX.Element => {
   const { pageTitle, posts } = data as Data;
@@ -24,7 +25,8 @@ const coffrets = (): JSX.Element => {
                       <Link
                         href={picture.picturePath}
                         target="_blank"
-                        rel="noopener noreferrer">
+                        rel="noopener noreferrer"
+                      >
                         <Image
                           src={picture.picturePath}
                           alt={picture.alt}
@@ -38,7 +40,8 @@ const coffrets = (): JSX.Element => {
                       className="picture-legend"
                       dangerouslySetInnerHTML={{
                         __html: picture.pictureLegend,
-                      }}></div>
+                      }}
+                    ></div>
                   </div>
                 ))}
               </div>

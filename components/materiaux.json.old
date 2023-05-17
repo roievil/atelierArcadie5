@@ -13,7 +13,7 @@
             "postTitle": "Valchromat",
             "picture": [
                 {
-                    "picturePath": "/images/materiaux/ValchromatCollectionStyxParArcadie.JPG",
+                    "picturePath": "@/public/images/materiaux/ValchromatCollectionStyxParArcadie.JPG",
                     "pictureLegend": "",
                     "alt": "photo de valchromat",
                     "width": 1620,
@@ -30,7 +30,7 @@
             "postTitle": "Laiton",
             "picture": [
                 {
-                    "picturePath": "/images/materiaux/BobineDeFilDeLaitonCollectionStyxParArcadie.JPG",
+                    "picturePath": "@/public/images/materiaux/BobineDeFilDeLaitonCollectionStyxParArcadie.JPG",
                     "pictureLegend": "",
                     "alt": "photo d'une bobine de laiton",
                     "width": 1620,
@@ -46,7 +46,7 @@
             "postTitle": "Leds",
             "picture": [
                 {
-                    "picturePath": "/images/materiaux/00ErebeCollectionStyxParArcadie.JPG",
+                    "picturePath": "@/public/images/materiaux/00ErebeCollectionStyxParArcadie.JPG",
                     "pictureLegend": "",
                     "alt": "photo d'une ampoule a leds",
                     "width": 1620,
@@ -61,7 +61,7 @@
             "postTitle": "Altuglas",
             "picture": [
                 {
-                    "picturePath": "/images/materiaux/60LetheCollectionStyxParArcadie.jpg",
+                    "picturePath": "@/public/images/materiaux/60LetheCollectionStyxParArcadie.jpg",
                     "pictureLegend": "",
                     "alt": "photo d'une lampe avec plaque d'Altuglas",
                     "width": 1620,

@@ -1,6 +1,3 @@
-import AboutSection from "@/components/AboutSection";
-import HeroSection from "@/components/HeroSection";
-import ProjectsSection from "@/components/ProjectsSection";
 import Hero from "@/components/Hero";
 import Slider from "@/components/Slider";
 export default function Home() {

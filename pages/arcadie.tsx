@@ -1,9 +1,10 @@
-import React from 'react';
+"use client"; // this is a client component
+import React from "react";
 // import Contact from '@/components/ContactComponent'
 // import Hero from '@/components/Hero'
-import lacDuGrandMaclu from '../public/images/arcadie/lacDuGrandMaclu.jpg';
-import Link from 'next/link';
-import Image from 'next/image';
+import lacDuGrandMaclu from "../public/images/arcadie/lacDuGrandMaclu.jpg";
+import Link from "next/link";
+import Image from "next/image";
 
 const arcadie = (): JSX.Element => {
   return (
@@ -45,7 +46,8 @@ const arcadie = (): JSX.Element => {
         <div className="flex justify-center">
           <Link
             href="/contact"
-            className="bg-white text-black md:text-xl rounded-full px-6 py-2 mt-8 inline-block">
+            className="bg-white text-black md:text-xl rounded-full px-6 py-2 mt-8 inline-block"
+          >
             <p className="font-bold text-xl">Me contacter</p>
           </Link>
         </div>
