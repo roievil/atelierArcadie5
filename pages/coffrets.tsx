@@ -33,6 +33,7 @@ const coffrets = (): JSX.Element => {
                           width={pictureWidth}
                           height={picture.height}
                           className="rounded-lg pb-2"
+                          placeholder="empty"
                         />
                       </Link>
                     </div>
