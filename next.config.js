@@ -2,9 +2,9 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+  },images: {
+domains: ['s569958984.onlinehome.fr']
   },
-        domains: ['atelier-arcadie5.vercel.app'],
-        domains: ['atelierarcadie.fr'],
 }
 
 module.exports = nextConfig
